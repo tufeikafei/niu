@@ -220,7 +220,7 @@ class NiuApi:
         return self.get_nested(self.dataMotoInfo, ["data", id_field])
 
     def getDataTrack(self, id_field):
-        data_value = self.get_nested(self.dataTrackInfo, ["data", 0, id_field])
+        data_value = self.get_nested(self.dataTrackInfo, ["data","items", 0, id_field])
         if data_value and isinstance(data_value, int):
             if id_field == "startTime" or id_field == "endTime":
                 return datetime.fromtimestamp(data_value / 1000).strftime("%Y-%m-%d %H:%M:%S")
